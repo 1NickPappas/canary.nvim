@@ -7,6 +7,10 @@ M.defaults = {
   sources = {
     npm = { enabled = true },
     cargo = { enabled = true },
+    pypi = { enabled = true },
+    go = { enabled = true },
+    composer = { enabled = true },
+    rubygems = { enabled = true },
   },
 
   icon_style = "auto",
