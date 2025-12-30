@@ -4,10 +4,148 @@
 CONTENTS                                                      *canary-contents*
 
 1. Introduction ............................................. |canary-intro|
+2. Requirements ........................................... |canary-requirements|
+3. Installation ........................................... |canary-installation|
+4. Configuration .......................................... |canary-configuration|
+5. Commands ............................................... |canary-commands|
+6. Keymaps ................................................ |canary-keymaps|
+7. API .................................................... |canary-api|
+8. Highlights ............................................. |canary-highlights|
 
 ==============================================================================
 1. INTRODUCTION                                                  *canary-intro*
 
 canary.nvim is a Neovim plugin that displays dependency version status inline.
+It shows whether your dependencies are up-to-date, have minor updates, or have
+major (breaking) updates available.
+
+Supported package managers:
+- npm (package.json)
+- Cargo (Cargo.toml)
+
+==============================================================================
+2. REQUIREMENTS                                            *canary-requirements*
+
+- Neovim 0.10+
+- curl (for fetching version information)
+
+==============================================================================
+3. INSTALLATION                                            *canary-installation*
+
+Using lazy.nvim: >lua
+    {
+      "username/canary.nvim",
+      event = { "BufReadPost package.json", "BufReadPost Cargo.toml" },
+      opts = {},
+    }
+<
+
+Using packer.nvim: >lua
+    use {
+      "username/canary.nvim",
+      config = function()
+        require("canary").setup()
+      end
+    }
+<
+
+==============================================================================
+4. CONFIGURATION                                          *canary-configuration*
+
+Default configuration: >lua
+    require("canary").setup({
+      autostart = true,        -- Auto-check on file open
+      hide_up_to_date = false, -- Hide up-to-date dependencies
+
+      sources = {
+        npm = { enabled = true },
+        cargo = { enabled = true },
+      },
+
+      icon_style = "auto",     -- "auto", "nerd", "unicode", "ascii"
+
+      display_format = "full", -- "icon_only", "version_only", "full"
+
+      keymaps = {
+        show = "<leader>cs",
+        hide = "<leader>ch",
+        toggle = "<leader>ct",
+        check = "<leader>cc",
+        details = "K",
+      },
+
+      cache = {
+        enabled = true,
+        ttl = 3600,  -- 1 hour
+      },
+
+      highlights = {},         -- Custom highlight overrides
+      on_highlights = nil,     -- Callback for advanced customization
+    })
+<
+
+==============================================================================
+5. COMMANDS                                                    *canary-commands*
+
+*:CanaryCheck*      Check dependency versions for current buffer
+*:CanaryShow*       Show version hints
+*:CanaryHide*       Hide version hints
+*:CanaryToggle*     Toggle version hints
+*:CanaryRefresh*    Force refresh (bypass cache)
+
+==============================================================================
+6. KEYMAPS                                                      *canary-keymaps*
+
+Default keymaps (configurable):
+
+`<leader>cs`  Show hints
+`<leader>ch`  Hide hints
+`<leader>ct`  Toggle hints
+`<leader>cc`  Check versions
+`K`           Show details popup (when on dependency line)
+
+==============================================================================
+7. API                                                              *canary-api*
+
+*canary.setup()*
+    Initialize the plugin with optional configuration.
+
+*canary.check()*
+    Check dependency versions for current buffer.
+
+*canary.show()*
+    Show version hints.
+
+*canary.hide()*
+    Hide version hints.
+
+*canary.toggle()*
+    Toggle version hints visibility.
+
+*canary.refresh()*
+    Force refresh, bypassing cache.
+
+*canary.show_details()*
+    Show floating window with dependency details.
+
+==============================================================================
+8. HIGHLIGHTS                                                *canary-highlights*
+
+canary.nvim uses the following highlight groups:
+
+*CanaryUpToDate*    Links to DiagnosticHint
+*CanaryPatch*       Links to DiagnosticInfo
+*CanaryMinor*       Links to DiagnosticWarn
+*CanaryMajor*       Links to DiagnosticError
+*CanaryInvalid*     Links to DiagnosticError
+*CanaryLoading*     Links to Comment
+
+Override in config: >lua
+    require("canary").setup({
+      highlights = {
+        CanaryMajor = { link = "ErrorMsg" },
+      },
+    })
+<
 
  vim:tw=78:ts=8:ft=help:norl:
