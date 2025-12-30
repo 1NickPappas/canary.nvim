@@ -59,6 +59,18 @@ function M._setup_keymaps(config)
       M.show_details()
     end, { desc = "Canary: Show details", buffer = false })
   end
+
+  if keymaps.filter then
+    vim.keymap.set("n", keymaps.filter, function()
+      M.toggle_filter()
+    end, { desc = "Canary: Toggle filter (hide up-to-date)" })
+  end
+
+  if keymaps.update then
+    vim.keymap.set("n", keymaps.update, function()
+      M.update_all()
+    end, { desc = "Canary: Update all dependencies" })
+  end
 end
 
 function M.check(opts)
@@ -90,6 +102,16 @@ function M.show_details()
   local bufnr = vim.api.nvim_get_current_buf()
   local line = vim.fn.line(".") - 1
   require("canary.ui.float").show_line_details(bufnr, line)
+end
+
+function M.toggle_filter()
+  local bufnr = vim.api.nvim_get_current_buf()
+  require("canary.core").toggle_filter(bufnr)
+end
+
+function M.update_all()
+  local bufnr = vim.api.nvim_get_current_buf()
+  require("canary.update").update_all(bufnr)
 end
 
 return M

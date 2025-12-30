@@ -37,9 +37,14 @@ function M.check_buffer(bufnr, opts)
         dep.status = semver.compare_status(dep.current, dep.latest)
       end
 
-      M._state[bufnr] = { deps = results, visible = true }
+      local existing = M._state[bufnr] or {}
+      M._state[bufnr] = {
+        deps = results,
+        visible = true,
+        hide_up_to_date = existing.hide_up_to_date or false,
+      }
 
-      virtual_text.render(bufnr, results)
+      virtual_text.render(bufnr, results, { hide_up_to_date = M._state[bufnr].hide_up_to_date })
     end)
   end)
 end
@@ -50,6 +55,18 @@ end
 
 function M.clear_state(bufnr)
   M._state[bufnr] = nil
+end
+
+function M.toggle_filter(bufnr)
+  local state = M._state[bufnr]
+  if not state or not state.deps then
+    return
+  end
+
+  state.hide_up_to_date = not state.hide_up_to_date
+
+  local virtual_text = require("canary.ui.virtual_text")
+  virtual_text.render(bufnr, state.deps, { hide_up_to_date = state.hide_up_to_date })
 end
 
 return M

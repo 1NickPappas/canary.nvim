@@ -27,6 +27,7 @@ M.defaults = {
     toggle = "<leader>ct",
     check = "<leader>cc",
     details = "K",
+    filter = "<leader>cf",
     update = "<leader>cu",
     next_outdated = "]d",
     prev_outdated = "[d",

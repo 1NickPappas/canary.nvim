@@ -22,3 +22,11 @@ end, { desc = "Toggle version hints" })
 vim.api.nvim_create_user_command("CanaryRefresh", function()
   require("canary").refresh()
 end, { desc = "Force refresh (bypass cache)" })
+
+vim.api.nvim_create_user_command("CanaryFilter", function()
+  require("canary").toggle_filter()
+end, { desc = "Toggle filter (hide up-to-date)" })
+
+vim.api.nvim_create_user_command("CanaryUpdate", function()
+  require("canary").update_all()
+end, { desc = "Update all dependencies" })

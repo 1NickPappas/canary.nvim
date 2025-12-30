@@ -54,13 +54,18 @@ local function format_dep(dep)
   return text, hl
 end
 
-function M.render(bufnr, deps)
+function M.render(bufnr, deps, opts)
   M.clear(bufnr)
 
+  opts = opts or {}
   local config = require("canary.config").get()
+  local hide_up_to_date = opts.hide_up_to_date
+  if hide_up_to_date == nil then
+    hide_up_to_date = config.hide_up_to_date
+  end
 
   for _, dep in ipairs(deps) do
-    if dep.line and (not config.hide_up_to_date or dep.status ~= "up_to_date") then
+    if dep.line and (not hide_up_to_date or dep.status ~= "up_to_date") then
       local text, hl = format_dep(dep)
 
       vim.api.nvim_buf_set_extmark(bufnr, ns_id, dep.line - 1, 0, {
@@ -99,7 +104,7 @@ function M.show(bufnr)
   local core = require("canary.core")
   local state = core.get_state(bufnr)
   if state and state.deps then
-    M.render(bufnr, state.deps)
+    M.render(bufnr, state.deps, { hide_up_to_date = state.hide_up_to_date })
   end
 end
 
