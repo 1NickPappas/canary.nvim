@@ -30,3 +30,7 @@ end, { desc = "Toggle filter (hide up-to-date)" })
 vim.api.nvim_create_user_command("CanaryUpdate", function()
   require("canary").update_all()
 end, { desc = "Update all dependencies" })
+
+vim.api.nvim_create_user_command("CanaryUpdateLine", function()
+  require("canary").update_line()
+end, { desc = "Update dependency at cursor" })

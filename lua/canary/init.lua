@@ -71,6 +71,12 @@ function M._setup_keymaps(config)
       M.update_all()
     end, { desc = "Canary: Update all dependencies" })
   end
+
+  if keymaps.update_line then
+    vim.keymap.set("n", keymaps.update_line, function()
+      M.update_line()
+    end, { desc = "Canary: Update dependency at cursor" })
+  end
 end
 
 function M.check(opts)
@@ -112,6 +118,12 @@ end
 function M.update_all()
   local bufnr = vim.api.nvim_get_current_buf()
   require("canary.update").update_all(bufnr)
+end
+
+function M.update_line()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local line = vim.fn.line(".") - 1
+  require("canary.update").update_line(bufnr, line)
 end
 
 return M

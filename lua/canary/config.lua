@@ -29,6 +29,7 @@ M.defaults = {
     details = "K",
     filter = "<leader>cf",
     update = "<leader>cu",
+    update_line = "<leader>cU",
     next_outdated = "]d",
     prev_outdated = "[d",
   },
