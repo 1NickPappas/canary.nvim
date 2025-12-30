@@ -11,9 +11,9 @@ function M.parse(content)
       current_section = section
     elseif current_section then
       local is_deps = current_section == "dependencies"
-        or current_section:match("^dependencies%.")
+        or current_section:match("^dependencies%.") ~= nil
       local is_dev = current_section == "dev-dependencies"
-        or current_section:match("^dev%-dependencies%.")
+        or current_section:match("^dev%-dependencies%.") ~= nil
 
       if is_deps or is_dev then
         local name, version = M._parse_dependency_line(line)
