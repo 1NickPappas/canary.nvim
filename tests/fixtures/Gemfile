@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+
+gem 'rails', '~> 7.0'
+gem 'pg', '~> 1.4'
+gem 'puma', '~> 5.0'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 6.0'
+  gem 'rubocop', '~> 1.50'
+end
+
+group :development do
+  gem 'web-console'
+end
