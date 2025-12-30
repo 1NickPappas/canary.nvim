@@ -59,6 +59,8 @@ require("canary").setup({
     toggle = "<leader>ct",
     check = "<leader>cc",
     details = "K",
+    filter = "<leader>cf",
+    update = "<leader>cu",
   },
 
   cache = {
@@ -77,6 +79,8 @@ require("canary").setup({
 | `:CanaryHide` | Hide version hints |
 | `:CanaryToggle` | Toggle version hints |
 | `:CanaryRefresh` | Force refresh (bypass cache) |
+| `:CanaryFilter` | Toggle hiding up-to-date dependencies |
+| `:CanaryUpdate` | Update all outdated dependencies |
 
 ## Keymaps
 
@@ -86,6 +90,8 @@ require("canary").setup({
 | `<leader>ch` | Hide hints |
 | `<leader>ct` | Toggle hints |
 | `<leader>cc` | Check versions |
+| `<leader>cf` | Toggle filter (hide up-to-date) |
+| `<leader>cu` | Update all outdated |
 | `K` | Show details popup |
 
 ## Highlight Groups
@@ -119,6 +125,8 @@ canary.hide()           -- Hide hints
 canary.toggle()         -- Toggle visibility
 canary.refresh()        -- Force refresh
 canary.show_details()   -- Show detail popup
+canary.toggle_filter()  -- Toggle hide up-to-date
+canary.update_all()     -- Update all outdated deps
 ```
 
 ## License
