@@ -1,0 +1,26 @@
+# Neovim
+.luarc.json
+doc/tags
+
+# Dependencies
+.deps/
+
+# Testing
+.tests/
+luacov.stats.out
+luacov.report.out
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+*.so
+*.dll
