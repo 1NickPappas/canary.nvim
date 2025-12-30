@@ -1,0 +1,13 @@
+*canary.txt*  Inline dependency version checker for Neovim
+
+==============================================================================
+CONTENTS                                                      *canary-contents*
+
+1. Introduction ............................................. |canary-intro|
+
+==============================================================================
+1. INTRODUCTION                                                  *canary-intro*
+
+canary.nvim is a Neovim plugin that displays dependency version status inline.
+
+ vim:tw=78:ts=8:ft=help:norl:
