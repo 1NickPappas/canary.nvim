@@ -12,8 +12,14 @@ Inline dependency version checker for Neovim. Shows version status directly in y
 
 ## Supported Package Managers
 
-- **npm** - package.json
-- **Cargo** - Cargo.toml
+| Language | File | Registry |
+|----------|------|----------|
+| JavaScript/TypeScript | `package.json` | npm |
+| Rust | `Cargo.toml` | crates.io |
+| Python | `pyproject.toml` | PyPI |
+| Go | `go.mod` | proxy.golang.org |
+| PHP | `composer.json` | Packagist |
+| Ruby | `Gemfile` | RubyGems |
 
 ## Requirements
 
@@ -27,7 +33,14 @@ Inline dependency version checker for Neovim. Shows version status directly in y
 ```lua
 {
   "username/canary.nvim",
-  event = { "BufReadPost package.json", "BufReadPost Cargo.toml" },
+  event = {
+    "BufReadPost package.json",
+    "BufReadPost Cargo.toml",
+    "BufReadPost pyproject.toml",
+    "BufReadPost go.mod",
+    "BufReadPost composer.json",
+    "BufReadPost Gemfile",
+  },
   opts = {},
 }
 ```

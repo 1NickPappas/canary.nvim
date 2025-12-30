@@ -20,8 +20,12 @@ It shows whether your dependencies are up-to-date, have minor updates, or have
 major (breaking) updates available.
 
 Supported package managers:
-- npm (package.json)
-- Cargo (Cargo.toml)
+- JavaScript/TypeScript: package.json (npm)
+- Rust: Cargo.toml (crates.io)
+- Python: pyproject.toml (PyPI)
+- Go: go.mod (proxy.golang.org)
+- PHP: composer.json (Packagist)
+- Ruby: Gemfile (RubyGems)
 
 ==============================================================================
 2. REQUIREMENTS                                            *canary-requirements*
@@ -60,6 +64,10 @@ Default configuration: >lua
       sources = {
         npm = { enabled = true },
         cargo = { enabled = true },
+        pypi = { enabled = true },
+        go = { enabled = true },
+        composer = { enabled = true },
+        rubygems = { enabled = true },
       },
 
       icon_style = "auto",     -- "auto", "nerd", "unicode", "ascii"
