@@ -15,11 +15,17 @@ Inline dependency version checker for Neovim. Shows version status directly in y
 | Language | File | Registry |
 |----------|------|----------|
 | JavaScript/TypeScript | `package.json` | npm |
+| JavaScript (Deno) | `deno.json` | JSR / npm |
 | Rust | `Cargo.toml` | crates.io |
 | Python | `pyproject.toml` | PyPI |
+| Python | `requirements.txt` | PyPI |
+| Python | `Pipfile` | PyPI |
 | Go | `go.mod` | proxy.golang.org |
 | PHP | `composer.json` | Packagist |
 | Ruby | `Gemfile` | RubyGems |
+| Elixir | `mix.exs` | Hex |
+
+**Note:** Bun uses `package.json`, so it works automatically with npm support.
 
 ## Requirements
 
@@ -37,9 +43,13 @@ Inline dependency version checker for Neovim. Shows version status directly in y
     "BufReadPost package.json",
     "BufReadPost Cargo.toml",
     "BufReadPost pyproject.toml",
+    "BufReadPost requirements.txt",
+    "BufReadPost Pipfile",
     "BufReadPost go.mod",
     "BufReadPost composer.json",
     "BufReadPost Gemfile",
+    "BufReadPost deno.json",
+    "BufReadPost mix.exs",
   },
   opts = {},
 }

@@ -21,11 +21,15 @@ major (breaking) updates available.
 
 Supported package managers:
 - JavaScript/TypeScript: package.json (npm)
+- JavaScript (Deno): deno.json (JSR / npm)
 - Rust: Cargo.toml (crates.io)
-- Python: pyproject.toml (PyPI)
+- Python: pyproject.toml, requirements.txt, Pipfile (PyPI)
 - Go: go.mod (proxy.golang.org)
 - PHP: composer.json (Packagist)
 - Ruby: Gemfile (RubyGems)
+- Elixir: mix.exs (Hex)
+
+Note: Bun uses package.json, so it works automatically.
 
 ==============================================================================
 2. REQUIREMENTS                                            *canary-requirements*
@@ -65,9 +69,13 @@ Default configuration: >lua
         npm = { enabled = true },
         cargo = { enabled = true },
         pypi = { enabled = true },
+        pypi_requirements = { enabled = true },
+        pypi_pipfile = { enabled = true },
         go = { enabled = true },
         composer = { enabled = true },
         rubygems = { enabled = true },
+        deno = { enabled = true },
+        hex = { enabled = true },
       },
 
       icon_style = "auto",     -- "auto", "nerd", "unicode", "ascii"
