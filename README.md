@@ -1,6 +1,12 @@
-# canary.nvim
+<p align="center">
+  <img src="assets/canary_logo.png" alt="canary.nvim logo" width="200">
+</p>
 
-Inline dependency version checker for Neovim. Shows version status directly in your package manifests.
+<h1 align="center">canary.nvim</h1>
+
+<p align="center">
+  Inline dependency version checker for Neovim. Shows version status directly in your package manifests.
+</p>
 
 ## Features
 
