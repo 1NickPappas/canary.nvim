@@ -1,22 +1,34 @@
-<p align="center">
-  <img src="assets/canary_logo.png" alt="canary.nvim logo" width="200">
-</p>
+<div align="center">
 
-<h1 align="center">canary.nvim</h1>
+# canary.nvim
+##### Inline dependency version checker for Neovim
 
-<p align="center">
-  Inline dependency version checker for Neovim. Shows version status directly in your package manifests.
-</p>
+[![Lua](https://img.shields.io/badge/Lua-blue.svg?style=for-the-badge&logo=lua)](http://www.lua.org)
+[![Neovim](https://img.shields.io/badge/Neovim%200.10+-green.svg?style=for-the-badge&logo=neovim)](https://neovim.io)
 
-## Features
+<img alt="canary.nvim" height="200" src="/assets/canary_logo.png" />
+</div>
 
+## ⇁ TOC
+* [Features](#-features)
+* [Supported Package Managers](#-supported-package-managers)
+* [Installation](#-installation)
+* [Configuration](#-configuration)
+* [Commands](#-commands)
+* [Keymaps](#-keymaps)
+* [API](#-api)
+* [Highlight Groups](#-highlight-groups)
+* [License](#-license)
+
+## ⇁ Features
 - Inline virtual text showing version status
-- Color-coded by severity (up-to-date, minor, major updates)
+- Color-coded by severity (up-to-date, patch, minor, major updates)
 - Works with any colorscheme
 - Caching to minimize API calls
 - Async HTTP requests
+- Update dependencies directly from Neovim
 
-## Supported Package Managers
+## ⇁ Supported Package Managers
 
 | Language | File | Registry |
 |----------|------|----------|
@@ -31,17 +43,13 @@
 | Ruby | `Gemfile` | RubyGems |
 | Elixir | `mix.exs` | Hex |
 
-**Note:** Bun uses `package.json`, so it works automatically with npm support.
+> **Note:** Bun uses `package.json`, so it works automatically with npm support.
 
-## Requirements
-
-- Neovim 0.10+
-- curl
-
-## Installation
+## ⇁ Installation
+* Neovim 0.10+ required
+* curl required for fetching version information
 
 ### lazy.nvim
-
 ```lua
 {
   "1NickPappas/canary.nvim",
@@ -62,7 +70,6 @@
 ```
 
 ### packer.nvim
-
 ```lua
 use {
   "1NickPappas/canary.nvim",
@@ -72,7 +79,7 @@ use {
 }
 ```
 
-## Configuration
+## ⇁ Configuration
 
 ```lua
 require("canary").setup({
@@ -100,7 +107,7 @@ require("canary").setup({
 })
 ```
 
-## Commands
+## ⇁ Commands
 
 | Command | Description |
 |---------|-------------|
@@ -113,7 +120,7 @@ require("canary").setup({
 | `:CanaryUpdate` | Update all outdated dependencies |
 | `:CanaryUpdateLine` | Update dependency at cursor |
 
-## Keymaps
+## ⇁ Keymaps
 
 | Key | Action |
 |-----|--------|
@@ -126,7 +133,24 @@ require("canary").setup({
 | `<leader>cU` | Update dependency at cursor |
 | `K` | Show details popup |
 
-## Highlight Groups
+## ⇁ API
+
+```lua
+local canary = require("canary")
+
+canary.setup(opts)      -- Initialize with config
+canary.check()          -- Check current buffer
+canary.show()           -- Show hints
+canary.hide()           -- Hide hints
+canary.toggle()         -- Toggle visibility
+canary.refresh()        -- Force refresh
+canary.show_details()   -- Show detail popup
+canary.toggle_filter()  -- Toggle hide up-to-date
+canary.update_all()     -- Update all outdated deps
+canary.update_line()    -- Update dep at cursor
+```
+
+## ⇁ Highlight Groups
 
 | Group | Default | Description |
 |-------|---------|-------------|
@@ -145,23 +169,6 @@ require("canary").setup({
 })
 ```
 
-## API
-
-```lua
-local canary = require("canary")
-
-canary.setup(opts)      -- Initialize with config
-canary.check()          -- Check current buffer
-canary.show()           -- Show hints
-canary.hide()           -- Hide hints
-canary.toggle()         -- Toggle visibility
-canary.refresh()        -- Force refresh
-canary.show_details()   -- Show detail popup
-canary.toggle_filter()  -- Toggle hide up-to-date
-canary.update_all()     -- Update all outdated deps
-canary.update_line()    -- Update dep at cursor
-```
-
-## License
+## ⇁ License
 
 MIT
