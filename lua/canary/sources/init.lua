@@ -1,12 +1,18 @@
 local M = {}
 
+local pypi = require("canary.sources.pypi")
+
 local sources = {
   npm = require("canary.sources.npm"),
   cargo = require("canary.sources.cargo"),
-  pypi = require("canary.sources.pypi"),
+  pypi = pypi,
+  pypi_requirements = pypi, -- reuse PyPI source
+  pypi_pipfile = pypi, -- reuse PyPI source
   go = require("canary.sources.goproxy"),
   composer = require("canary.sources.packagist"),
   rubygems = require("canary.sources.rubygems"),
+  deno = require("canary.sources.jsr"),
+  hex = require("canary.sources.hex"),
 }
 
 function M.get(filetype)

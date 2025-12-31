@@ -8,9 +8,13 @@ M.defaults = {
     npm = { enabled = true },
     cargo = { enabled = true },
     pypi = { enabled = true },
+    pypi_requirements = { enabled = true },
+    pypi_pipfile = { enabled = true },
     go = { enabled = true },
     composer = { enabled = true },
     rubygems = { enabled = true },
+    deno = { enabled = true },
+    hex = { enabled = true },
   },
 
   icon_style = "auto",
