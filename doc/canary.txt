@@ -42,7 +42,7 @@ Note: Bun uses package.json, so it works automatically.
 
 Using lazy.nvim: >lua
     {
-      "username/canary.nvim",
+      "1NickPappas/canary.nvim",
       event = { "BufReadPost package.json", "BufReadPost Cargo.toml" },
       opts = {},
     }
@@ -50,7 +50,7 @@ Using lazy.nvim: >lua
 
 Using packer.nvim: >lua
     use {
-      "username/canary.nvim",
+      "1NickPappas/canary.nvim",
       config = function()
         require("canary").setup()
       end

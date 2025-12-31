@@ -38,7 +38,7 @@ Inline dependency version checker for Neovim. Shows version status directly in y
 
 ```lua
 {
-  "username/canary.nvim",
+  "1NickPappas/canary.nvim",
   event = {
     "BufReadPost package.json",
     "BufReadPost Cargo.toml",
@@ -59,7 +59,7 @@ Inline dependency version checker for Neovim. Shows version status directly in y
 
 ```lua
 use {
-  "username/canary.nvim",
+  "1NickPappas/canary.nvim",
   config = function()
     require("canary").setup()
   end
