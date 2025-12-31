@@ -84,6 +84,7 @@ require("canary").setup({
     details = "K",
     filter = "<leader>cf",
     update = "<leader>cu",
+    update_line = "<leader>cU",
   },
 
   cache = {
@@ -104,6 +105,7 @@ require("canary").setup({
 | `:CanaryRefresh` | Force refresh (bypass cache) |
 | `:CanaryFilter` | Toggle hiding up-to-date dependencies |
 | `:CanaryUpdate` | Update all outdated dependencies |
+| `:CanaryUpdateLine` | Update dependency at cursor |
 
 ## Keymaps
 
@@ -115,6 +117,7 @@ require("canary").setup({
 | `<leader>cc` | Check versions |
 | `<leader>cf` | Toggle filter (hide up-to-date) |
 | `<leader>cu` | Update all outdated |
+| `<leader>cU` | Update dependency at cursor |
 | `K` | Show details popup |
 
 ## Highlight Groups
@@ -150,6 +153,7 @@ canary.refresh()        -- Force refresh
 canary.show_details()   -- Show detail popup
 canary.toggle_filter()  -- Toggle hide up-to-date
 canary.update_all()     -- Update all outdated deps
+canary.update_line()    -- Update dep at cursor
 ```
 
 ## License

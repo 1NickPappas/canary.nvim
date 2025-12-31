@@ -90,6 +90,7 @@ Default configuration: >lua
         details = "K",
         filter = "<leader>cf",
         update = "<leader>cu",
+        update_line = "<leader>cU",
       },
 
       cache = {
@@ -112,6 +113,7 @@ Default configuration: >lua
 *:CanaryRefresh*    Force refresh (bypass cache)
 *:CanaryFilter*     Toggle hiding up-to-date dependencies
 *:CanaryUpdate*     Update all outdated dependencies to latest versions
+*:CanaryUpdateLine* Update dependency at cursor
 
 ==============================================================================
 6. KEYMAPS                                                      *canary-keymaps*
@@ -124,6 +126,7 @@ Default keymaps (configurable):
 `<leader>cc`  Check versions
 `<leader>cf`  Toggle filter (hide up-to-date)
 `<leader>cu`  Update all outdated dependencies
+`<leader>cU`  Update dependency at cursor
 `K`           Show details popup (when on dependency line)
 
 ==============================================================================
@@ -156,6 +159,9 @@ Default keymaps (configurable):
 *canary.update_all()*
     Update all outdated dependencies in current buffer to their latest
     versions. Preserves semver prefixes (^, ~, >=).
+
+*canary.update_line()*
+    Update the dependency at cursor to its latest version.
 
 ==============================================================================
 8. HIGHLIGHTS                                                *canary-highlights*
