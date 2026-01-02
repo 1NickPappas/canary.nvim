@@ -1,0 +1,21 @@
+name: my_flutter_app
+description: A sample Flutter application
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.0
+  provider: ^6.0.0
+  shared_preferences: ^2.0.0
+  dio: ^5.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  mockito: ^5.0.0
+  build_runner: ^2.3.0

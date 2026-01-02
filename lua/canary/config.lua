@@ -15,6 +15,13 @@ M.defaults = {
     rubygems = { enabled = true },
     deno = { enabled = true },
     hex = { enabled = true },
+    pubdev = { enabled = true },
+    julia = { enabled = true },
+    nuget = { enabled = true },
+    maven = { enabled = true },
+    luarocks = { enabled = true },
+    cpan = { enabled = true },
+    cran = { enabled = true },
   },
 
   icon_style = "auto",

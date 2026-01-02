@@ -28,6 +28,13 @@ Supported package managers:
 - PHP: composer.json (Packagist)
 - Ruby: Gemfile (RubyGems)
 - Elixir: mix.exs (Hex)
+- Dart/Flutter: pubspec.yaml (pub.dev)
+- Julia: Project.toml (JuliaHub)
+- C#/.NET: *.csproj (NuGet)
+- Java/Kotlin: pom.xml (Maven Central)
+- Lua: *.rockspec (LuaRocks)
+- Perl: cpanfile (MetaCPAN)
+- R: DESCRIPTION (CRAN)
 
 Note: Bun uses package.json, so it works automatically.
 
@@ -76,6 +83,13 @@ Default configuration: >lua
         rubygems = { enabled = true },
         deno = { enabled = true },
         hex = { enabled = true },
+        pubdev = { enabled = true },
+        julia = { enabled = true },
+        nuget = { enabled = true },
+        maven = { enabled = true },
+        luarocks = { enabled = true },
+        cpan = { enabled = true },
+        cran = { enabled = true },
       },
 
       icon_style = "auto",     -- "auto", "nerd", "unicode", "ascii"

@@ -42,6 +42,13 @@
 | PHP | `composer.json` | Packagist |
 | Ruby | `Gemfile` | RubyGems |
 | Elixir | `mix.exs` | Hex |
+| Dart/Flutter | `pubspec.yaml` | pub.dev |
+| Julia | `Project.toml` | JuliaHub |
+| C#/.NET | `*.csproj` | NuGet |
+| Java/Kotlin | `pom.xml` | Maven Central |
+| Lua | `*.rockspec` | LuaRocks |
+| Perl | `cpanfile` | MetaCPAN |
+| R | `DESCRIPTION` | CRAN |
 
 > **Note:** Bun uses `package.json`, so it works automatically with npm support.
 
@@ -64,6 +71,13 @@
     "BufReadPost Gemfile",
     "BufReadPost deno.json",
     "BufReadPost mix.exs",
+    "BufReadPost pubspec.yaml",
+    "BufReadPost Project.toml",
+    "BufReadPost *.csproj",
+    "BufReadPost pom.xml",
+    "BufReadPost *.rockspec",
+    "BufReadPost cpanfile",
+    "BufReadPost DESCRIPTION",
   },
   opts = {},
 }

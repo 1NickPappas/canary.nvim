@@ -11,6 +11,13 @@ local parsers = {
   rubygems = require("canary.parsers.gemfile"),
   deno = require("canary.parsers.deno_json"),
   hex = require("canary.parsers.mix_exs"),
+  pubdev = require("canary.parsers.pubspec_yaml"),
+  julia = require("canary.parsers.project_toml"),
+  nuget = require("canary.parsers.csproj"),
+  maven = require("canary.parsers.pom_xml"),
+  luarocks = require("canary.parsers.rockspec"),
+  cpan = require("canary.parsers.cpanfile"),
+  cran = require("canary.parsers.description"),
 }
 
 function M.get(filetype)
@@ -48,6 +55,27 @@ function M.detect(filename)
   if filename:match("mix%.exs$") then
     return "hex"
   end
+  if filename:match("pubspec%.yaml$") then
+    return "pubdev"
+  end
+  if filename:match("Project%.toml$") then
+    return "julia"
+  end
+  if filename:match("%.csproj$") then
+    return "nuget"
+  end
+  if filename:match("pom%.xml$") then
+    return "maven"
+  end
+  if filename:match("%.rockspec$") then
+    return "luarocks"
+  end
+  if filename:match("cpanfile$") then
+    return "cpan"
+  end
+  if filename:match("DESCRIPTION$") then
+    return "cran"
+  end
   return nil
 end
 
@@ -63,6 +91,13 @@ function M.supported_files()
     "Gemfile",
     "deno.json",
     "mix.exs",
+    "pubspec.yaml",
+    "Project.toml",
+    "*.csproj",
+    "pom.xml",
+    "*.rockspec",
+    "cpanfile",
+    "DESCRIPTION",
   }
 end
 

@@ -13,6 +13,13 @@ local sources = {
   rubygems = require("canary.sources.rubygems"),
   deno = require("canary.sources.jsr"),
   hex = require("canary.sources.hex"),
+  pubdev = require("canary.sources.pubdev"),
+  julia = require("canary.sources.juliahub"),
+  nuget = require("canary.sources.nuget"),
+  maven = require("canary.sources.maven"),
+  luarocks = require("canary.sources.luarocks"),
+  cpan = require("canary.sources.metacpan"),
+  cran = require("canary.sources.cran"),
 }
 
 function M.get(filetype)
