@@ -20,6 +20,10 @@
 * [Highlight Groups](#-highlight-groups)
 * [License](#-license)
 
+<div align="center">
+<img alt="Screenshot" src="/assets/screenshot.png" />
+</div>
+
 ## ⇁ Features
 - Inline virtual text showing version status
 - Color-coded by severity (up-to-date, patch, minor, major updates)
