@@ -45,7 +45,11 @@
 | Dart/Flutter | `pubspec.yaml` | pub.dev |
 | Julia | `Project.toml` | JuliaHub |
 | C#/.NET | `*.csproj` | NuGet |
+| C#/.NET | `Directory.Packages.props` | NuGet |
 | Java/Kotlin | `pom.xml` | Maven Central |
+| Java/Kotlin | `build.gradle` | Maven Central |
+| Java/Kotlin | `build.gradle.kts` | Maven Central |
+| Java/Kotlin | `libs.versions.toml` | Maven Central |
 | Lua | `*.rockspec` | LuaRocks |
 | Perl | `cpanfile` | MetaCPAN |
 | R | `DESCRIPTION` | CRAN |
@@ -74,7 +78,11 @@
     "BufReadPost pubspec.yaml",
     "BufReadPost Project.toml",
     "BufReadPost *.csproj",
+    "BufReadPost Directory.Packages.props",
     "BufReadPost pom.xml",
+    "BufReadPost build.gradle",
+    "BufReadPost build.gradle.kts",
+    "BufReadPost libs.versions.toml",
     "BufReadPost *.rockspec",
     "BufReadPost cpanfile",
     "BufReadPost DESCRIPTION",

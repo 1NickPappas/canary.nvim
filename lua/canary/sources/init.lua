@@ -1,6 +1,8 @@
 local M = {}
 
 local pypi = require("canary.sources.pypi")
+local nuget = require("canary.sources.nuget")
+local maven = require("canary.sources.maven")
 
 local sources = {
   npm = require("canary.sources.npm"),
@@ -15,8 +17,12 @@ local sources = {
   hex = require("canary.sources.hex"),
   pubdev = require("canary.sources.pubdev"),
   julia = require("canary.sources.juliahub"),
-  nuget = require("canary.sources.nuget"),
-  maven = require("canary.sources.maven"),
+  nuget = nuget,
+  nuget_central = nuget, -- reuse NuGet source
+  maven = maven,
+  gradle = maven, -- reuse Maven source
+  gradle_kts = maven, -- reuse Maven source
+  gradle_catalog = maven, -- reuse Maven source
   luarocks = require("canary.sources.luarocks"),
   cpan = require("canary.sources.metacpan"),
   cran = require("canary.sources.cran"),

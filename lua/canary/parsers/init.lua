@@ -14,7 +14,11 @@ local parsers = {
   pubdev = require("canary.parsers.pubspec_yaml"),
   julia = require("canary.parsers.project_toml"),
   nuget = require("canary.parsers.csproj"),
+  nuget_central = require("canary.parsers.directory_packages"),
   maven = require("canary.parsers.pom_xml"),
+  gradle = require("canary.parsers.build_gradle"),
+  gradle_kts = require("canary.parsers.build_gradle_kts"),
+  gradle_catalog = require("canary.parsers.libs_versions_toml"),
   luarocks = require("canary.parsers.rockspec"),
   cpan = require("canary.parsers.cpanfile"),
   cran = require("canary.parsers.description"),
@@ -64,8 +68,20 @@ function M.detect(filename)
   if filename:match("%.csproj$") then
     return "nuget"
   end
+  if filename:match("Directory%.Packages%.props$") then
+    return "nuget_central"
+  end
   if filename:match("pom%.xml$") then
     return "maven"
+  end
+  if filename:match("build%.gradle%.kts$") then
+    return "gradle_kts"
+  end
+  if filename:match("build%.gradle$") then
+    return "gradle"
+  end
+  if filename:match("libs%.versions%.toml$") then
+    return "gradle_catalog"
   end
   if filename:match("%.rockspec$") then
     return "luarocks"
@@ -94,7 +110,11 @@ function M.supported_files()
     "pubspec.yaml",
     "Project.toml",
     "*.csproj",
+    "Directory.Packages.props",
     "pom.xml",
+    "build.gradle",
+    "build.gradle.kts",
+    "libs.versions.toml",
     "*.rockspec",
     "cpanfile",
     "DESCRIPTION",

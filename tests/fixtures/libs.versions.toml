@@ -1,0 +1,18 @@
+[versions]
+guava = "31.0-jre"
+kotlin = "1.9.0"
+coroutines = "1.7.3"
+junit = "4.13.2"
+
+[libraries]
+guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+junit = { module = "junit:junit", version = "4.13.2" }
+commons-lang = "org.apache.commons:commons-lang3:3.12.0"
+
+[bundles]
+kotlin = ["kotlin-stdlib", "kotlinx-coroutines"]
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
