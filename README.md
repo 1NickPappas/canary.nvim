@@ -68,32 +68,12 @@
 ```lua
 {
   "1NickPappas/canary.nvim",
-  event = {
-    "BufReadPost package.json",
-    "BufReadPost Cargo.toml",
-    "BufReadPost pyproject.toml",
-    "BufReadPost requirements.txt",
-    "BufReadPost Pipfile",
-    "BufReadPost go.mod",
-    "BufReadPost composer.json",
-    "BufReadPost Gemfile",
-    "BufReadPost deno.json",
-    "BufReadPost mix.exs",
-    "BufReadPost pubspec.yaml",
-    "BufReadPost Project.toml",
-    "BufReadPost *.csproj",
-    "BufReadPost Directory.Packages.props",
-    "BufReadPost pom.xml",
-    "BufReadPost build.gradle",
-    "BufReadPost build.gradle.kts",
-    "BufReadPost libs.versions.toml",
-    "BufReadPost *.rockspec",
-    "BufReadPost cpanfile",
-    "BufReadPost DESCRIPTION",
-  },
+  event = "VeryLazy",
   opts = {},
 }
 ```
+
+> The plugin automatically detects supported dependency files.
 
 ### packer.nvim
 ```lua
